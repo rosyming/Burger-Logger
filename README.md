@@ -21,6 +21,7 @@ Developed a burger logger with MySQL, Node, Express, Handlebars and a homemade O
 4. Node.js
 5. NPMs and/or APIs: Express npm, mysql npm, express-handlebars npm, dotenv npm
 6. Heroku Cloud Platform
+7. JawsDB
 
 - - -
 ### Repository
