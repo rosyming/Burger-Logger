@@ -1,3 +1,8 @@
+// Requiring the dotenv for the mysql PW
+(function main() {
+  require('dotenv').config();
+}());
+
 // Setting up MySQL connection
 var mysql = require("mysql");
 
@@ -5,7 +10,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "R0$yming",
+  password: process.env.MYSQL_PW,
   database: "burgers_db"
 });
 

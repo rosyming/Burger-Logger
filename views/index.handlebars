@@ -1,35 +1,57 @@
-<h1>Quotes App</h1>
+<div class="container">
 
-<p>Manage quotes with this app</p>
+  <img src="/assets/img/burger.png" class="img-fluid rounded mx-auto d-block" alt="Burger Picture">
 
-<!-- Pass in data from server.js -->
-<ul>
-  {{#each quotes}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Quote:</span> {{this.quote}}</p>
-      <p><span class="label">Author:</span> {{this.author}}</p>
+  <p id="instructions" class="text-center">Add to your collection of burgers to be eaten!</p>
 
-      <button data-id="{{this.id}}" class="delquote">Delete</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+          <h5 class="text-center">Burgers to Eat:</h5>
 
-      <a href="/{{this.id}}">Update this quote</a>
-  	</li>
-  {{/each}}
-</ul>
+          <ol>
+            {{#each burgers}}
+              {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+              {{/unless}}
+            {{/each}}
+          </ol>
+      </div>
 
-<h2>Add a Quote</h2>
+      <div class="col-6">
+          <h5 class="text-center">Burgers Ate:</h5>
+            <ol>
+              {{#each burgers}}
+                {{#if devoured}}
+                  {{> burgers/burger-block devoured=false}}
+                {{/if}}
+              {{/each}}
+            </ol>
+      </div>
 
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="auth">Author:</label>
-    <input type="text" id="auth" name="author">
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
+  <div class="container">
+    <div>
+        <h5>Add a Burger</h5>
 
-  <button type="submit">Add Quote</button>
-</form>
+        <form class="create-form">
+          <div id="burger-name-section" class="form-group">
+            <label for="ca">Burger Name:</label>
+            <input class="form-control" type="text" id="ca" name="name">
+          </div>
+
+          <div class="form-group">
+            <label for="devoured">Devoured:</label><br>
+            <input type="radio" name="devoured" value="1" checked> Ate the burger<br>
+            <input type="radio" name="devoured" value="0"> Need to eat the burger
+          </div>
+
+          <button type="submit">Add Burger</button>
+
+          
+        </form>
+    </div>
+  </div>
+</div>
